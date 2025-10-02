@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Spring Boot Multimodular</title>
+</head>
+
+<body>
+    <h1>Aplicación Spring Boot Multimodular</h1>
+    <div>
+        <h2>Información del Sistema</h2>
+        <p><strong>Mensaje:</strong> <span th:text="${info.mensaje}">Mensaje por defecto</span></p>
+        <p><strong>Fecha:</strong> <span th:text="${info.fecha}">Fecha por defecto</span></p>
+    </div>
+    <div>
+        <h3>Enlaces útiles:</h3>
+        <ul>
+            <li><a href="/api/info">API JSON</a></li>
+            <li><a href="/actuator/health">Health Check</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

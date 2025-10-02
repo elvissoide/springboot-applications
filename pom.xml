@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.elvis.app1</groupId>
-	<artifactId>springboot-applications</artifactId>
+	<artifactId>springboot-applications-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-applications</name>
-	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
+	<name>springboot-applications-parent</name>
+	<description>Demo project for Spring Boot - Parent Module</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -29,42 +30,44 @@
 	<properties>
 		<java.version>21</java.version>
 	</properties>
-	<dependencies>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+	<modules>
+		<module>springboot-applications-core</module>
+		<module>springboot-applications-service</module>
+		<module>springboot-applications-web</module>
+		<module>springboot-applications-app</module>
+	</modules>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<!-- Internal module dependencies -->
+			<dependency>
+				<groupId>com.elvis.app1</groupId>
+				<artifactId>springboot-applications-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.elvis.app1</groupId>
+				<artifactId>springboot-applications-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.elvis.app1</groupId>
+				<artifactId>springboot-applications-web</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 </project>
